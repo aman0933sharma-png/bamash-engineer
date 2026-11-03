@@ -91,7 +91,7 @@ export function Desk() {
     },
     {
       label: "Site labour",
-      value: latest ? formatQty(latest.labour) : "\u2014",
+      value: latest ? formatQty(latest.labour) : "—",
       hint: latest ? formatLong(latest.date) : "No diary yet",
     },
   ];
@@ -103,19 +103,19 @@ export function Desk() {
         <h1 className="font-display text-4xl leading-none tracking-wide md:text-5xl">{PROJECT.name}</h1>
         <p className="mt-2 text-sm">
           {PROJECT.packageName}
-          <span className="text-muted"> \u00b7 {PROJECT.contractor}</span>
+          <span className="text-muted"> · {PROJECT.contractor}</span>
         </p>
         <p className="mt-2 font-display text-xl tabular-nums tracking-wide md:text-2xl">
           <span className="text-accent">
-            Km {formatCh(PROJECT.fromKm)} \u2013 {formatCh(PROJECT.toKm)}
+            Km {formatCh(PROJECT.fromKm)} – {formatCh(PROJECT.toKm)}
           </span>
           <span className="text-muted">
             {" "}
-            \u00b7 {length.toFixed(3)} km \u00b7 \u20b9{PROJECT.contractCr.toFixed(2)} Cr
+            · {length.toFixed(3)} km · ₹{PROJECT.contractCr.toFixed(2)} Cr
           </span>
         </p>
         <p className="mt-1 text-sm text-muted">
-          {formatWeekday(today)} {formatLong(today)} \u00b7 register for the resident engineer
+          {formatWeekday(today)} {formatLong(today)} · register for the resident engineer
         </p>
       </header>
 
@@ -175,11 +175,11 @@ export function Desk() {
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <p className="font-display text-xl tracking-wide">{formatLong(latest.date)}</p>
                 <p className="text-sm text-muted">
-                  {latest.weather} \u00b7 {latest.tempC}\u00b0C \u00b7 {formatQty(latest.labour)} hands
+                  {latest.weather} · {latest.tempC}°C · {formatQty(latest.labour)} hands
                 </p>
               </div>
               <p className="mt-1 font-display text-lg tabular-nums tracking-wide text-accent">
-                Km {latest.fromCh} \u2013 {latest.toCh}
+                Km {latest.fromCh} – {latest.toCh}
               </p>
               <p className="mt-2 text-sm">{latest.work}</p>
             </article>
@@ -223,7 +223,7 @@ export function Desk() {
                   if (!row) return null;
                   return (
                     <div className="rounded-md bg-ink px-2 py-1 text-xs text-bg">
-                      {row.name} \u00b7 {formatPct(row.pct)}
+                      {row.name} · {formatPct(row.pct)}
                     </div>
                   );
                 }}
@@ -240,7 +240,7 @@ export function Desk() {
         </div>
         <p className="text-sm text-muted">
           Bituminous layers are not started. Piling on the underpass is complete. Record fresh
-          quantities in the measurement book \u2014 the bars and the progress figure both move.
+          quantities in the measurement book — the bars and the progress figure both move.
         </p>
       </Panel>
 
