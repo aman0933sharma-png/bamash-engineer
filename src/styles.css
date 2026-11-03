@@ -1,0 +1,143 @@
+@import "@fontsource/source-sans-3/latin-400.css";
+@import "@fontsource/source-sans-3/latin-500.css";
+@import "@fontsource/source-sans-3/latin-600.css";
+@import "@fontsource/source-sans-3/latin-700.css";
+@import "@fontsource/barlow-condensed/latin-500.css";
+@import "@fontsource/barlow-condensed/latin-600.css";
+@import "@fontsource/barlow-condensed/latin-700.css";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --color-bg: #efe8da;
+  --color-surface: rgb(255 253 248 / 0.62);
+  --color-ink: #1a1714;
+  --color-muted: #6e675e;
+  --color-line: rgb(255 255 255 / 0.45);
+  --color-accent: #c65a12;
+  --color-accent-ink: #fff7f2;
+  --color-wash: rgb(255 236 214 / 0.72);
+  --shadow-card:
+    inset 0 1px 0 rgb(255 255 255 / 0.78), inset 0 -1px 0 rgb(26 23 20 / 0.06),
+    0 18px 40px -22px rgb(26 23 20 / 0.48), 0 0 0 1px rgb(255 255 255 / 0.42);
+}
+
+@layer base {
+  html {
+    background: #d9cebc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: transparent;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgb(255 248 236 / 0.72), rgb(236 226 208 / 0.78)),
+      url("/site-bg.jpg") center 42% / cover no-repeat;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button {
+    transition:
+      background-color 150ms ease,
+      color 150ms ease,
+      border-color 150ms ease,
+      box-shadow 150ms ease,
+      transform 150ms ease,
+      opacity 150ms ease;
+  }
+}
+
+.bg-surface {
+  background-color: rgb(255 253 248 / 0.5);
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 0.62), rgb(255 253 248 / 0.18));
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  backdrop-filter: blur(18px) saturate(1.5);
+}
+
+.bg-wash {
+  background-image: linear-gradient(180deg, rgb(255 244 226 / 0.8), rgb(255 228 196 / 0.4));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.85),
+    0 0 0 1px rgb(198 90 18 / 0.16);
+}
+
+.bg-ink {
+  background-image: linear-gradient(180deg, #4a433b 0%, #1a1714 58%, #0f0d0b 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.28),
+    0 10px 18px -12px rgb(0 0 0 / 0.65);
+}
+
+button.bg-accent {
+  background-image: linear-gradient(180deg, #f09448 0%, #c65a12 48%, #9a430e 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.5),
+    inset 0 -2px 0 rgb(80 24 0 / 0.28),
+    0 12px 22px -12px rgb(198 90 18 / 0.8);
+}
+
+button.bg-accent:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.glass-pane {
+  background: linear-gradient(180deg, rgb(255 253 248 / 0.72), rgb(255 253 248 / 0.4));
+  -webkit-backdrop-filter: blur(22px) saturate(1.55);
+  backdrop-filter: blur(22px) saturate(1.55);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.8),
+    0 0 0 1px rgb(255 255 255 / 0.38);
+}
+
+.login-stage {
+  position: relative;
+}
+
+.login-card {
+  position: relative;
+  background: linear-gradient(165deg, rgb(255 253 248 / 0.82), rgb(255 253 248 / 0.58));
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid rgb(255 255 255 / 0.62);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.9),
+    0 18px 40px -24px rgb(26 23 20 / 0.45),
+    0 0 0 1px rgb(255 255 255 / 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
